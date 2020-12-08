@@ -137,7 +137,7 @@ const TodoApp = () => {
   return (
     <div className="container">
       <div className="row center-xs">
-        <div className="col-xs-12 col-md-8">
+        <div className="col-xs-12 col-md-9">
           <div className="todo-app">
             <div className="header">
               <h2>Your todo list</h2>
@@ -238,6 +238,7 @@ const TodoApp = () => {
                             className="todo-app__task-form todo-app__task--edit"
                             value={editValue}
                             onChange={(e) => editInputHandler(e, id)}
+                            data-testid="input-edit"
                           />
                           <button
                             type="button"

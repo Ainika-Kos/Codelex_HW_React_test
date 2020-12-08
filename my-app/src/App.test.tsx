@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, { shallow} from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { v4 as uuidv4 } from 'uuid';
 import TodoApp from './App';
@@ -58,24 +58,23 @@ const editFullItem = (
   editValue: string
 ): Promise<any> => {
   return new Promise((resolve) => {
-    const editButton = wrapper.find('[data-testid="item-edit"]');
+    
+    const inputEdit = wrapper.find('[data-testid="input-edit"]');
 
-    editButton.simulate('click');
-
-    const saveButton = wrapper.find('[data-testid="item-save"]');
-
-    saveButton.simulate('click');
-
-    const itemText = wrapper.find('[data-testid="item-text"]');
-
-    itemText.simulate('change', {
+    inputEdit.simulate('change', {
       target: {
         id,
-        value: name,
+        value: editValue,
+        finished,
+        edit,
+        editValue: ''
       },
     });
 
-    resolve(wrapper.find('[data-testid="item-text"]'));
+    const saveButton = wrapper.find('[data-testid="item-save"]');
+    saveButton.simulate('click');
+
+    resolve(wrapper.find('[data-testid="input-edit"]'));
   });
 };
 
@@ -308,25 +307,30 @@ describe('<TodoApp />', () => {
   it('Adds one task with all properties, makes and saves changes', async () => {
     addFullItem(wrapper, '1', 'Wash car', false, false, '');
 
-  //   // console.log(wrapper.debug());
+    // console.log(wrapper.debug());
 
-  //   let items = wrapper.find('[data-testid="item"]');
-  //   expect(items).toHaveLength(1);
+    let items = wrapper.find('[data-testid="item"]');
+    expect(items).toHaveLength(1);
 
-  //   let taskText = items.find('[data-testid="item-text"]').text();
-  //   expect(taskText).toBe('Wash car');
+    let taskText = items.find('[data-testid="item-text"]').text();
+    expect(taskText).toBe('Wash car');
 
-  //   const input = wrapper.find('[data-testid="input"]');
-  //   expect(input.props().value).toEqual('');
+    const editButton = wrapper.find('[data-testid="item-edit"]');
 
-  //   editFullItem(wrapper, '1', 'Wash car twice', false, false, '');
+    editButton.simulate('click');
 
-  //   items = wrapper.find('[data-testid="item"]');
-  //   expect(items).toHaveLength(1);
+    let inputEdit = wrapper.find('[data-testid="input-edit"]');
+    expect(inputEdit).toHaveLength(1);
 
-  //   console.log(wrapper.debug());
+    inputEdit = await editFullItem(wrapper, '1', 'Wash car', false, true, 'Wash car twice');
 
-  //   taskText = items.find('[data-testid="item-text"]').text();
-  //   expect(taskText).toBe('Wash car twice');
+    items = wrapper.find('[data-testid="item"]');
+    expect(items).toHaveLength(1);
+
+    taskText = items.find('[data-testid="item-text"]').text();
+    expect(taskText).toBe('Wash car twice');
+
+    console.log(wrapper.debug());
+    
   });
 });
