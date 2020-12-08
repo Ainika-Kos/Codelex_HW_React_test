@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(3, 214, 243, 1);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+.todo-app {
+    padding: 20px;
+    margin: 20px;
+    background: linear-gradient(230.95deg, #CB1AE8 -0.37%, #37BDA6 100%);
+    border-radius: 8px;
+}
+
+.header {
+    margin: 0;
+    margin-bottom: 30px;
+    color: white;
+}
+
+button {
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(3, 214, 243, 1);
+    font-weight: 500;
+    padding: 15px;
+    border: 1px solid transparent;
+    box-shadow: 0px 4px 31px rgba(0, 0, 0, 0.15);
+    margin: 15px;
+    transition: background-color, color 0.2s;
+    border-radius: 8px;
+    min-width: 150px;
+    font-weight: 700;
+}
+
+button:hover,
+button:active{
+    background-color: rgba(3, 214, 243, 1);
+    border: 1px solid transparent;
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+    outline: none;
+}
+
+.todo-app__task {
+    display: flex;
+    padding: 0;
+}
+
+.todo-app__task__actions {
+    margin: 0x;
+    margin-left: 100px;
+}
+
+.button-actions {
+    background-color: rgba(3, 214, 243, 1);
+    color: white;
+    min-width: 20px;
+}
+
+.button-actions--secondary {
+    min-width: 100px;
+}
+
+.button-actions:hover,
+.button-actions--secondary:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid transparent;
+    color: rgba(3, 214, 243, 1);
+    cursor: pointer;
+}
+
+
+.todo-app__task-form {
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 1px solid grey;
+    background-color: white;
+    font-size: 16x;
+    padding: 10px;
+    min-width: 500px;
+}
+
+.todo-app__task--edit{
+    min-width: 400px;
+}
+
+.todo-app__task-form:focus {
+    outline: none;
+    border: 2px solid  rgba(3, 214, 243, 1);
+}
+
+.todo-app__checkbox {
+    margin: 0;
+}
+
+.todo-app__text {
+    margin: 0 10px;
+    line-height: 1;
+    min-width: 100px;
+}
+
+.todo-app__text--finished {
+    text-decoration: line-through;
+    font-style: italic;
+    color:white;
+}
