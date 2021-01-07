@@ -190,8 +190,6 @@ describe('<TodoApp />', () => {
   it('Adds one task with all properties', async () => {
     addFullItem(wrapper, '1', 'Wash car', false, false, '');
 
-    // console.log(wrapper.debug());
-
     let items = wrapper.find('[data-testid="item"]');
     expect(items).toHaveLength(1);
 
@@ -237,8 +235,6 @@ describe('<TodoApp />', () => {
       );
     }
 
-    // console.log(wrapper.debug());
-
     let items = wrapper.find('[data-testid="item"]');
     expect(items).toHaveLength(tasks.length);
 
@@ -282,8 +278,6 @@ describe('<TodoApp />', () => {
   it('Adds one task with all properties and makes copy', async () => {
     addFullItem(wrapper, '1', 'Wash car', false, false, '');
 
-    // console.log(wrapper.debug());
-
     let items = wrapper.find('[data-testid="item"]');
     expect(items).toHaveLength(1);
 
@@ -306,8 +300,6 @@ describe('<TodoApp />', () => {
 
   it('Adds one task with all properties, makes and saves changes', async () => {
     addFullItem(wrapper, '1', 'Wash car', false, false, '');
-
-    // console.log(wrapper.debug());
 
     let items = wrapper.find('[data-testid="item"]');
     expect(items).toHaveLength(1);
