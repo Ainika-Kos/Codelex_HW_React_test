@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import 'flexboxgrid';
 import { v4 as uuidv4 } from 'uuid';
-// import { Task, TaskType } from './components/task/task';
 
 type TaskType = {
   id: string;
